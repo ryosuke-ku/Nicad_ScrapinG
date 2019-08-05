@@ -169,6 +169,7 @@ print(len(allhasTestPairs))
 num = 0
 filenum = 1
 cc = 0
+testPath = open('C:/Users/ryosuke-ku/Desktop/getMapMethods/Nicad_' + ProjectName + '.txt','w') # Nicad_3.javaのファイルを開く
 for i in allhasTestPairs:
 	cc += 1
 	os.mkdir('NicadOutputFile_' + ProjectName + '/Clone Pairs ' + str(cc))
@@ -180,7 +181,9 @@ for i in allhasTestPairs:
 	ep2 = re.sub(r".*?:", "", p2)
 	p2t = allhasTestPairs[i][3]
 	print(ep2)
-
+	testPath.write(p1t + '\n')
+	testPath.write(p2t + '\n')
+	
 	
 	file = open('NicadOutputFile_' + ProjectName + '/Clone Pairs ' + str(cc) + '/Nicad_' + ProjectName + str(filenum) + '.java','w') # Nicad_3.javaのファイルを開く
 	f = open("C:/Users/ryosuke-ku/Desktop/NiCad-5.1/systems/" + ep1, "r", encoding="utf-8")
@@ -227,4 +230,6 @@ for i in allhasTestPairs:
 			pass
 	file.write('}')
 	filenum += 1
+
+testPath.close()
 
